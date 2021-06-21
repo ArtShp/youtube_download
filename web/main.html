@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube_Downloader</title>
+    <script src="eel.js"></script>
+</head>
+<body>
+
+    <input id="url" type="text" placeholder="Copy the video's url here..." required="">
+    <button id="download">Download</button>
+    <p id="res"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        async function download() {
+            let url = document.getElementById('url').value;
+            let res = await eel.download(url)();
+            document.getElementById('res').innerHTML = res;
+        }
+
+        jQuery('#download').on('click', function() {
+            download()
+        });
+    </script>
+
+</body>
+</html>
