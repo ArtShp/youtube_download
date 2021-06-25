@@ -7,15 +7,17 @@
 </head>
 <body>
 
-    <input id="url" type="text" placeholder="Copy the video's url here..." required="">
+    <input id="path" type="text" placeholder="Path to download" required="" value="D:/download"><br>
+    <input id="url" type="text" placeholder="Copy the video's url here..." required=""><br>
     <button id="download">Download</button>
     <p id="res"></p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         async function download() {
+            let path = document.getElementById('path').value;
             let url = document.getElementById('url').value;
-            let res = await eel.download(url)();
+            let res = await eel.download(url, path)();
             document.getElementById('res').innerHTML = res;
         }
 
